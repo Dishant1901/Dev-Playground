@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This is server playground where i'll be testing out nodejs features & other backend things to learn",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js"
