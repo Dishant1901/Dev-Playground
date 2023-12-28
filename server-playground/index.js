@@ -6,6 +6,10 @@ const PORT = 1001
 
 app.use(express.json())
 
+app.get('/',(req,res)=>{
+    return res.json({sucess: true,message:`welcome to my demonstration pf deploying nodejs server on AWS!`})
+})
+
 app.get('/api', (req, res) =>  {
     const {name,age} = req.body;
     console.log(name,age)
