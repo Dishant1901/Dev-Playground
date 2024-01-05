@@ -2,18 +2,21 @@ import winston from 'winston'
 import {join,dirname} from 'path'
 import { fileURLToPath } from 'url';
 import fs from 'fs'
-
+import os from 'os'
 //
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-const folderName = 'logs'
-let newDir = __dirname.split('utils')[0]
-const logFolderPath = join(newDir,folderName)
+const homedir = os.homedir()
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+const folderName = 'playground-logs'
+// let newDir = __dirname.split('utils')[0]
+// const logFolderPath = join(newDir,folderName)
 
+const logfolder = join(homedir,folderName)
 export const createFolder=()=>{
-    if(!fs.existsSync(logFolderPath)){
-        fs.mkdir(logFolderPath,()=>console.log('log flder created!'))
+    if(!fs.existsSync(logfolder)){
+        fs.mkdir(logfolder,()=>console.log('log flder created!'))
     }
+    // console.log(homedir)
 }
 
 const my_levels = {
@@ -32,8 +35,8 @@ export const logger = winston.createLogger({
     ), 
     transports: [
       new winston.transports.Console({level:'error'}),  // learn about it
-      new winston.transports.File({ filename: join(logFolderPath,'logfile.log') ,level:'info' }),
-      new winston.transports.File({ filename: join(logFolderPath,'error.log') ,level:'error' }),
-      new winston.transports.File({ filename: join(logFolderPath,'silly.log') ,level:'silly' })
+      new winston.transports.File({ filename: join(logfolder,'logfile.log') ,level:'info' }),
+      new winston.transports.File({ filename: join(logfolder,'error.log') ,level:'error' }),
+      new winston.transports.File({ filename: join(logfolder,'silly.log') ,level:'silly' })
     ]
   });
