@@ -1,6 +1,6 @@
 import express from "express"
 import { createFolder, logger } from "./utils/winstonLogger.js";
-import { mail } from "./utils/email.js";
+// import { mail } from "./utils/email.js";
 import dotenv from'dotenv'
 import cors from 'cors'
 import mongoose from "mongoose";
