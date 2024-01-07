@@ -30,11 +30,11 @@ export const logger = winston.createLogger({
     // level:my_levels,
     format: winston.format.combine(
       winston.format.timestamp(),
-      winston.format.simple(),
-    //   winston.format.prettyPrint(),
+      // winston.format.simple(),
+      winston.format.prettyPrint(),
     ), 
     transports: [
-      new winston.transports.Console({level:'error'}),  // learn about it
+      // new winston.transports.Console({level:'error'}),  // learn about it
       new winston.transports.File({ filename: join(logfolder,'logfile.log') ,level:'info' }),
       new winston.transports.File({ filename: join(logfolder,'error.log') ,level:'error' }),
       new winston.transports.File({ filename: join(logfolder,'silly.log') ,level:'silly' })
